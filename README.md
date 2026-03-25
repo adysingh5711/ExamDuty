@@ -164,4 +164,4 @@ Indian Institute of Information Technology, Ranchi (IIIT Ranchi)
 
 ---
 
-Built with ❤️ for efficient exam duty management at IIIT Raichur.
+Built with ❤️ for efficient exam duty management at IIIT Ranchi.
