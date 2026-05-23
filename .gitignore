@@ -23,6 +23,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-test_schedule.xlsx
-test.txt
