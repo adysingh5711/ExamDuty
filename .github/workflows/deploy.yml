@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths:
+      - ".github/workflow/deploy.yml"
       - "src/**"
       - "index.html"
       - "package.json"
