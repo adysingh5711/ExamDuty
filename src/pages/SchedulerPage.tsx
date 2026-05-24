@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FileUp,
@@ -17,8 +17,17 @@ import * as XLSX from 'xlsx';
 import { Person, Schedule, FacultyConstraint } from '../types';
 import { generateSchedule } from '../utils/scheduleGenerator';
 import ScheduleDisplay from '../ScheduleDisplay';
+import { updateSEO } from '../utils/seo';
 
 export default function SchedulerPage() {
+  useEffect(() => {
+    updateSEO({
+      title: "Automated Exam Roster Generator | ExamDuty",
+      description: "Set days, classrooms, and faculty constraints. Instantly generate fair, conflict-free, seniority-respecting exam duty rosters.",
+      canonical: "https://adysingh5711.github.io/ExamDuty/schedule-generator"
+    });
+  }, []);
+
   const [schedule, setSchedule] = useState<Schedule | null>(null);
   const [faculty, setFaculty] = useState<Person[]>([]);
   const [staff, setStaff] = useState<Person[]>([]);
@@ -217,7 +226,7 @@ export default function SchedulerPage() {
             <div className="flex items-center gap-2 min-w-0">
               <CalendarDays size={18} className="text-indigo-600" />
               <div className="min-w-0">
-                <p className="text-sm font-semibold tracking-tight truncate">ExamDuty</p>
+                <h1 className="text-sm font-semibold tracking-tight truncate">ExamDuty</h1>
                 <p className="text-xs text-slate-500 truncate">Examination Duty Schedule Generator</p>
               </div>
             </div>

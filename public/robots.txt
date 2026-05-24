@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adysingh5711.github.io/ExamDuty/sitemap.xml

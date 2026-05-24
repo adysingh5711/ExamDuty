@@ -5,12 +5,22 @@ import Fade from "../components/shared/Fade";
 import WorkflowSteps from "../components/landing/WorkflowSteps";
 import FeatureGrid from "../components/landing/FeatureGrid";
 import ScheduleMockup from "../components/landing/ScheduleMockup";
+import { IMAGES } from "../utils/assets";
+import { updateSEO } from "../utils/seo";
 
 // Lazy-load the heavyweight animation and solver graphic component
 const HeroGraphic = lazy(() => import("../components/landing/HeroGraphic"));
 
 export default function LandingPage() {
   const [top, setTop] = useState(true);
+
+  useEffect(() => {
+    updateSEO({
+      title: "Exam Duty Roster Generator | Automated Faculty Duty Scheduling",
+      description: "Generate fair, conflict-free faculty exam duty rosters in under two minutes. Fully automates seniority, leaves, pre-assignments, and classroom constraints. Deployed at IIIT Ranchi.",
+      canonical: "https://adysingh5711.github.io/ExamDuty/"
+    });
+  }, []);
 
   useEffect(() => {
     const fn = () => setTop(window.scrollY < 8);
@@ -30,7 +40,8 @@ export default function LandingPage() {
       >
         <div className="max-w-5xl mx-auto px-6 h-full flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <CalendarDays size={18} className="text-indigo-600" />
+            {/* <CalendarDays size={18} className="text-indigo-600" /> */}
+            <img src={IMAGES.logo} alt="ExamDuty" className="h-6 w-6" />
             <span className="font-semibold text-sm tracking-tight">
               ExamDuty
             </span>
@@ -214,10 +225,10 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto">
           <Fade className="mb-14">
             <p className="text-indigo-600 text-xs font-semibold uppercase tracking-widest mb-3">
-              Workflow
+              How does the automated scheduler work?
             </p>
             <h2 className="font-bold text-slate-900 text-3xl">
-              Three steps, then it&apos;s done.
+              How it works: Three steps, then it&apos;s done.
             </h2>
           </Fade>
 
@@ -230,10 +241,10 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto">
           <Fade className="mb-14">
             <p className="text-indigo-600 text-xs font-semibold uppercase tracking-widest mb-3">
-              Capabilities
+              What constraints are handled by the algorithm?
             </p>
             <h2 className="font-bold text-slate-900 text-3xl">
-              Every constraint, handled automatically.
+              Every roster constraint, handled automatically.
             </h2>
           </Fade>
 
@@ -246,10 +257,10 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto">
           <Fade className="mb-14">
             <p className="text-indigo-600 text-xs font-semibold uppercase tracking-widest mb-3">
-              Output
+              What does the final exam roster look like?
             </p>
             <h2 className="font-bold text-slate-900 text-3xl">
-              The full picture, at a glance.
+              The full exam schedule picture, at a glance.
             </h2>
             <p className="text-slate-500 text-base mt-3 max-w-lg">
               Every assignment tagged by role and seniority. No hidden logic -
