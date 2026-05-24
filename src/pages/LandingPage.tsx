@@ -103,7 +103,7 @@ export default function LandingPage() {
             </p>
 
             <div
-              className="flex flex-wrap items-center gap-3"
+              className="flex flex-wrap items-center gap-3 pb-10"
               style={{ animation: "up 0.5s ease 180ms both" }}
             >
               <Link
@@ -115,12 +115,6 @@ export default function LandingPage() {
                 <ArrowRight size={14} />
               </Link>
             </div>
-
-            {/* Padding strip */}
-            <div
-              className="flex flex-wrap items-center gap-6 mt-10 pt-10"
-              style={{ animation: "up 0.5s ease 240ms both" }}
-            />
           </div>
 
           {/* right graphic */}
