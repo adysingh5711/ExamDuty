@@ -62,63 +62,66 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="pt-20 pb-0 px-6">
-        <div className="hero-grid max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-          {/* left copy */}
-          <div>
-            <div
-              className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full mb-8"
-              style={{ animation: "up 0.5s ease both" }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 inline-block" />
-              <span>Exam Scheduling Tool</span>
-            </div>
+      {/* ── HERO + TRUST STRIP combined viewport fill ── */}
+      <div className="flex flex-col min-h-svh pt-14">
 
-            <h1
-              className="font-bold text-slate-900 leading-[1.08] tracking-tight mb-6"
-              style={{
-                fontSize: "clamp(2.4rem, 6vw, 4rem)",
-                animation: "up 0.5s ease 60ms both",
-              }}
-            >
-              Exam duty rosters.
-              <br />
-              Done in <span className="text-indigo-600">two minutes</span>.
-              <br />
-              Not two hours.
-            </h1>
+        {/* Hero grid — grows to fill remaining space */}
+        <section className="flex-1 flex items-center px-6 py-12">
+          <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 items-center gap-12">
 
-            <p
-              className="text-slate-500 leading-relaxed mb-10 max-w-xl"
-              style={{
-                fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
-                animation: "up 0.5s ease 120ms both",
-              }}
-            >
-              Upload your faculty excel sheet. Set rooms and exam days. The
-              algorithm assigns every duty slot - respecting seniority,
-              pre-assignments, and hard constraints - and exports a clean
-              roster.
-            </p>
-
-            <div
-              className="flex flex-wrap items-center gap-3 pb-10"
-              style={{ animation: "up 0.5s ease 180ms both" }}
-            >
-              <Link
-                to="/schedule-generator"
-                className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-150 shadow-sm"
+            {/* left copy */}
+            <div className="flex flex-col gap-5">
+              <div
+                className="inline-flex self-start items-center gap-2 bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full"
+                style={{ animation: "up 0.5s ease both" }}
               >
-                <CalendarDays size={16} />
-                <span>Generate schedule</span>
-                <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 inline-block" />
+                <span>Exam Scheduling Tool</span>
+              </div>
 
-          {/* right graphic */}
-          <div>
+              <h1
+                className="font-bold text-slate-900 leading-[1.08] tracking-tight mb-6"
+                style={{
+                  fontSize: "clamp(2.4rem, 6vw, 4rem)",
+                  animation: "up 0.5s ease 60ms both",
+                }}
+              >
+                Exam duty rosters.
+                <br />
+                Done in <span className="text-indigo-600">two minutes</span>.
+                <br />
+                Not two hours.
+              </h1>
+
+              <p
+                className="text-slate-500 leading-relaxed mb-10 max-w-xl"
+                style={{
+                  fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
+                  animation: "up 0.5s ease 120ms both",
+                }}
+              >
+                Upload your faculty excel sheet. Set rooms and exam days. The
+                algorithm assigns every duty slot - respecting seniority,
+                pre-assignments, and hard constraints - and exports a clean
+                roster.
+              </p>
+
+              <div
+                className="flex flex-wrap items-center gap-3 pb-10"
+                style={{ animation: "up 0.5s ease 180ms both" }}
+              >
+                <Link
+                  to="/schedule-generator"
+                  className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-150 shadow-sm"
+                >
+                  <CalendarDays size={16} />
+                  <span>Generate schedule</span>
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            {/* right graphic */}
             <Suspense
               fallback={
                 <div className="h-[320px] sm:h-[450px] md:h-[520px] flex flex-col items-center justify-center text-slate-400 gap-2 font-medium">
@@ -131,79 +134,81 @@ export default function LandingPage() {
             >
               <HeroGraphic />
             </Suspense>
+
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── TRUST STRIP ── */}
-      <div className="relative overflow-hidden border-y border-slate-100 bg-gradient-to-r from-indigo-50/60 via-white to-indigo-50/60">
-        {/* subtle animated shimmer line at top border */}
-        <div
-          className="absolute top-0 left-0 h-px w-full"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, #6366f1 40%, #818cf8 60%, transparent 100%)",
-            animation: "shimmer 3s linear infinite",
-          }}
-        />
+        {/* Trust strip — pinned to bottom of the viewport block */}
+        <div className="relative border-y border-slate-100 bg-gradient-to-r from-indigo-50/60 via-white to-indigo-50/60 shrink-0 mb-0">
+          {/* subtle animated shimmer line at top border */}
+          <div
+            className="absolute top-0 left-0 h-px w-full"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent 0%, #6366f1 40%, #818cf8 60%, transparent 100%)",
+              animation: "shimmer 3s linear infinite",
+            }}
+          />
 
-        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-center sm:justify-between gap-4">
-          {/* left: label */}
-          <div className="flex items-center gap-2.5">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-            </span>
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
-              Actively used at
-            </span>
-          </div>
-
-          {/* center: logo + name */}
-          <a
-            href="https://iiitranchi.ac.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 group"
-          >
-            <img
-              src="https://iiitranchi.ac.in/images/logoXL.png"
-              alt="IIIT Ranchi logo"
-              className="h-9 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = "none";
-              }}
-            />
-            <div className="flex flex-col">
-              <span className="text-sm font-700 font-bold text-slate-800 leading-tight group-hover:text-indigo-700 transition-colors">
-                IIIT Ranchi
+          <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-center sm:justify-between gap-4">
+            {/* left: label */}
+            <div className="flex items-center gap-2.5">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
               </span>
-              <span className="text-xs text-slate-400 leading-tight">
-                Indian Institute of Information Technology
+              <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
+                Actively used at
               </span>
             </div>
-          </a>
 
-          {/* right: proof pill */}
-          <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-3.5 py-1.5 shadow-sm text-xs font-semibold text-slate-600">
-            <svg className="w-3.5 h-3.5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
-            Exam rosters generated every semester
+            {/* center: logo + name */}
+            <a
+              href="https://iiitranchi.ac.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 group"
+            >
+              <img
+                src="https://iiitranchi.ac.in/images/logoXL.png"
+                alt="IIIT Ranchi logo"
+                className="h-9 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = "none";
+                }}
+              />
+              <div className="flex flex-col">
+                <span className="text-sm font-700 font-bold text-slate-800 leading-tight group-hover:text-indigo-700 transition-colors">
+                  IIIT Ranchi
+                </span>
+                <span className="text-xs text-slate-400 leading-tight">
+                  Indian Institute of Information Technology
+                </span>
+              </div>
+            </a>
+
+            {/* right: proof pill */}
+            <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-3.5 py-1.5 shadow-sm text-xs font-semibold text-slate-600">
+              <svg className="w-3.5 h-3.5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              Exam rosters generated every semester
+            </div>
           </div>
-        </div>
 
-        {/* shimmer line at bottom border */}
-        <div
-          className="absolute bottom-0 left-0 h-px w-full"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, #6366f1 40%, #818cf8 60%, transparent 100%)",
-            animation: "shimmer 3s linear infinite reverse",
-          }}
-        />
+          {/* shimmer line at bottom border */}
+          <div
+            className="absolute bottom-0 left-0 h-px w-full"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent 0%, #6366f1 40%, #818cf8 60%, transparent 100%)",
+              animation: "shimmer 3s linear infinite reverse",
+            }}
+          />
+        </div>
       </div>
+
       {/* HOW IT WORKS */}
       <section id="how" className="py-24 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto">
