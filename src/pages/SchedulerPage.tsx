@@ -24,7 +24,7 @@ export default function SchedulerPage() {
     updateSEO({
       title: "Automated Exam Roster Generator | ExamDuty",
       description: "Set days, classrooms, and faculty constraints. Instantly generate fair, conflict-free, seniority-respecting exam duty rosters.",
-      canonical: "https://adysingh5711.github.io/ExamDuty/schedule-generator"
+      canonical: "https://examination-duty.vercel.app/schedule-generator"
     });
   }, []);
 

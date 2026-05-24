@@ -4,8 +4,8 @@ An open-source, automated exam duty roster generator tailored for educational in
 It generates fair, conflict-free, and constraint-compliant exam duty schedules in under two minutes.
 
 ## Core Pages
-- [Homepage](https://adysingh5711.github.io/ExamDuty/): High-level product tour, workflow explanation, and automated scheduling features.
-- [Roster Generator](https://adysingh5711.github.io/ExamDuty/schedule-generator): The interactive application where users upload a faculty Excel sheet, configure settings (rooms, sessions, dates), assign custom constraints (seniority exemptions, pre-assignments), and run the solver algorithm to generate and export rosters.
+- [Homepage](https://examination-duty.vercel.app/): High-level product tour, workflow explanation, and automated scheduling features.
+- [Roster Generator](https://examination-duty.vercel.app/schedule-generator): The interactive application where users upload a faculty Excel sheet, configure settings (rooms, sessions, dates), assign custom constraints (seniority exemptions, pre-assignments), and run the solver algorithm to generate and export rosters.
 
 ## Features & Constraints Resolved
 - **Seniority-based Duty Distribution**: Ensures fair duty load distribution based on designation (e.g., Professor, Associate/Assistant Professor).

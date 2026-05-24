@@ -18,7 +18,7 @@ export default function LandingPage() {
     updateSEO({
       title: "Exam Duty Roster Generator | Automated Faculty Duty Scheduling",
       description: "Generate fair, conflict-free faculty exam duty rosters in under two minutes. Fully automates seniority, leaves, pre-assignments, and classroom constraints. Deployed at IIIT Ranchi.",
-      canonical: "https://adysingh5711.github.io/ExamDuty/"
+      canonical: "https://examination-duty.vercel.app/"
     });
   }, []);
 
