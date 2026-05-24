@@ -1,167 +1,176 @@
-# Exam-Duty-IIITR
+<div align="center">
 
-A modern React-based application for generating and managing exam duty schedules at IIIT Ranchi.
+# ExamDuty
 
-## Features
+**Automated exam invigilation duty scheduler**
 
-- **Intelligent Scheduling**: Advanced algorithm for optimal duty distribution
-- **Faculty Constraints**: Support for pre-assigned faculty and seniority-based assignments
-- **Staff Balancing**: Ensures equitable workload distribution among staff
-- **Excel Integration**: Import faculty/staff data from Excel files
-- **Interactive UI**: Modern, responsive interface built with React and Tailwind CSS
-- **Validation**: Comprehensive schedule validation and constraint checking
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-18.3.1-61dafb?logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-3178c6?logo=typescript)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-5.4.2-646cff?logo=vite)](https://vitejs.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
 
-## Technology Stack
+[Live Demo](https://examination-duty.vercel.app/) · [Report Bug](https://github.com/adysingh5711/ExamDuty/issues) · [Request Feature](https://github.com/adysingh5711/ExamDuty/issues)
 
-- **Frontend**: React 18.3.1 with TypeScript 5.5.3
-- **Styling**: Tailwind CSS with Lucide React icons
-- **Build Tool**: Vite 5.4.2
-- **File Processing**: XLSX library for Excel file handling
-- **Code Quality**: ESLint with TypeScript support
-
-## Architecture
-
-### Modular Schedule Generator
-
-The application features a completely refactored, modular schedule generator that replaced a monolithic 1000+ line file with focused modules:
-
-```
-src/utils/scheduler/
-├── schedulerInterfaces.ts  # TypeScript interfaces and type definitions
-├── schedulerSetup.ts       # Configuration and input validation logic
-├── assignmentTracker.ts    # Assignment tracking and state management
-├── personSelector.ts       # Person selection and filtering algorithms
-├── roomAssigner.ts         # Room position assignment logic
-├── facultyPreAssigner.ts   # Faculty pre-assignment constraint handling
-├── workloadBalancer.ts     # Workload balancing and seniority algorithms
-├── scheduleValidator.ts    # Schedule validation and constraint fixing
-└── index.ts                # Clean module exports
-```
-
-### Project Structure
-
-```
-src/
-├── components/           # Reusable UI components
-├── constants/           # Application constants
-├── hooks/              # Custom React hooks
-├── services/           # Business logic and data processing
-├── types/              # Shared type definitions
-├── utils/              # Utility functions and scheduler
-├── App.tsx             # Main application component
-└── main.tsx           # Application entry point
-```
-
-## Installation
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd Exam-Duty-IIITR
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-4. Build for production:
-```bash
-npm run build
-```
-
-## Usage
-
-### Basic Schedule Generation
-
-1. **Upload Faculty/Staff Data**: Import an Excel file containing faculty and staff information
-2. **Set Parameters**: Configure the number of days and rooms for the exam period
-3. **Add Constraints**: Optionally specify faculty pre-assignments for specific days
-4. **Generate Schedule**: Click generate to create an optimized duty schedule
-5. **Review & Export**: Review the generated schedule and export as needed
-
-### Advanced Features
-
-#### Faculty Pre-Assignment
-- Assign specific faculty members to particular days
-- Maintains all scheduling constraints and workload balancing
-- Useful for accommodating faculty availability
-
-#### Workload Balancing
-- Automatic distribution of duties based on seniority
-- Staff target duty calculation (typically days-1)
-- Faculty duty allocation with senior faculty preference
-
-#### Constraint Management
-- Prevents consecutive day assignments to the same room
-- Ensures no person is assigned to multiple rooms on the same day
-- Validates duty count targets for all staff members
-
-## Algorithm Features
-
-### Intelligent Assignment
-- **Seniority-Based**: Respects faculty/staff hierarchy in assignments
-- **Constraint Satisfaction**: Ensures all hard constraints are met
-- **Optimized Distribution**: Balances workload across all personnel
-- **Fallback Logic**: Robust handling of edge cases and conflicts
-
-### Validation System
-- **Input Validation**: Validates all parameters and constraints
-- **Schedule Integrity**: Ensures generated schedules meet all requirements
-- **Error Handling**: Comprehensive error reporting and recovery
-
-## Configuration
-
-### Schedule Parameters
-- **Days**: 1-10 exam days supported
-- **Rooms**: 1-20 exam rooms supported
-- **Staff Duty Target**: Automatically calculated based on total positions
-- **Faculty Constraints**: Seniority-based duty distribution
-
-### File Formats
-- **Excel Input**: Supports .xlsx and .xls files
-- **Faculty Data**: Names and types (faculty/staff) required
-- **Pre-assignments**: Optional day-specific faculty assignments
-
-## Development
-
-### Scripts
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run preview  # Preview production build
-npm run lint     # Run ESLint checks
-```
-
-### Code Quality
-- TypeScript for type safety
-- ESLint for code quality
-- Modular architecture for maintainability
-- Comprehensive error handling
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-
-## License
-
-This project is licensed under the MIT License.
-
-## Author
-
-**Aditya Singh** (2022UG2062)  
-Indian Institute of Information Technology, Ranchi (IIIT Ranchi)
+</div>
 
 ---
 
-Built with ❤️ for efficient exam duty management at IIIT Ranchi.
+## What is this?
+
+ExamDuty eliminates the manual spreadsheet chaos of assigning exam invigilation duties. Upload your faculty/staff list as an Excel file, set the number of exam days and rooms, optionally pin specific faculty to specific days, and get a balanced, constraint-validated schedule in one click.
+
+Designed for IIIT Ranchi, but the scheduling engine is general enough for any institution using a similar duty-rotation model.
+
+---
+
+## Features
+
+- **Excel import** -- Upload `.xlsx`/`.xls` with faculty names and types (faculty/staff)
+- **Seniority-aware balancing** -- Senior faculty, listed in the top of the Excel, get proportionally adjusted duty counts
+- **Hard constraint enforcement** -- No person assigned twice on the same day; no consecutive same-room assignments
+- **Pre-assignment support** -- Pin faculty members to specific days before generation
+- **Workload targets** -- Staff duty target auto-calculated as `total_positions / staff_count`
+- **Validation layer** -- Post-generation checks catch and report any violated constraints
+- **Export-ready output** -- Rendered schedule table ready for copy/print
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| UI Framework | React 18.3.1 + TypeScript 5.5.3 |
+| Styling | Tailwind CSS + Lucide React |
+| Build | Vite 5.4.2 |
+| Excel Parsing | SheetJS (xlsx) |
+| Linting | ESLint with TypeScript plugin |
+
+---
+
+## Project Structure
+
+```
+ExamDuty/
+├── src/
+│   ├── pages/
+│   │   ├── LandingPage.tsx       # Marketing/intro page
+│   │   └── SchedulerPage.tsx     # Main scheduler UI
+│   ├── utils/
+│   │   └── scheduleGenerator.ts  # Core scheduling engine
+│   ├── ScheduleDisplay.tsx       # Schedule output & rendering
+│   ├── types.ts                  # Shared TypeScript types
+│   └── App.tsx                   # Route definitions
+├── public/                       # Static assets & SEO files
+├── try_ExamDuty.xlsx             # Sample input file
+└── index.html
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js >= 18
+- npm >= 9
+
+### Installation
+
+```bash
+git clone https://github.com/adysingh5711/ExamDuty.git
+cd ExamDuty
+npm install
+```
+
+### Development
+
+```bash
+npm run dev       # Start dev server at http://localhost:5173
+npm run build     # Production build to dist/
+npm run preview   # Preview the production build locally
+npm run lint      # Run ESLint
+```
+
+---
+
+## Usage
+
+### Input File Format
+
+Your Excel file must have these columns (see `try_ExamDuty.xlsx` for a working example):
+
+| Column | Required | Values |
+|---|---|---|
+| `Name` | Yes | Full name string |
+| `Type` | Yes | `faculty` or `staff` |
+
+### Workflow
+
+1. **Upload** the Excel file via the file input
+2. **Configure** number of exam days (1-10) and rooms (1-20)
+3. **Pre-assign** (optional) -- specify which faculty appear on which days
+4. **Generate** -- the scheduler runs constraint satisfaction and workload balancing
+5. **Review** the output table; fix any flagged warnings
+6. **Export** or print the schedule
+
+### Scheduling Constraints
+
+The engine enforces these hard constraints:
+
+- A person cannot be assigned to more than one room on the same day
+- A person cannot be assigned to the same room on consecutive days
+- Staff duty count target = `floor((days * rooms * 2) / staff_count)`
+- Faculty receive fewer duties; senior faculty receive the fewest
+
+---
+
+## Algorithm Overview
+
+The scheduler is a **greedy constraint-satisfaction** algorithm with a validation pass:
+
+1. **Setup** -- parse inputs, compute duty targets per person
+2. **Pre-assign** -- place faculty pinned to specific days first
+3. **Greedy fill** -- for each (day, room, slot), select the best eligible candidate using a priority score based on remaining duty budget and seniority rank
+4. **Validate** -- scan the full schedule for hard constraint violations and attempt local repair
+5. **Fallback** -- if repair fails, surfaces a detailed error rather than silently producing a broken schedule
+
+---
+
+## Contributing
+
+Contributions are welcome. Please follow this workflow:
+
+1. Fork the repository
+2. Create a branch: `git checkout -b feat/your-feature-name`
+3. Commit using [Conventional Commits](https://www.conventionalcommits.org/): `git commit -m "feat: add PDF export"`
+4. Push and open a Pull Request against `main`
+5. Ensure `npm run lint` passes before submitting
+
+For significant changes, open an issue first to discuss the approach.
+
+### Good First Issues
+
+- [ ] PDF / CSV export of generated schedule
+- [ ] Dark mode support
+- [ ] Configurable seniority tiers
+- [ ] Unit tests for the scheduler modules
+
+---
+
+## License
+
+Distributed under the [MIT License](LICENSE).
+
+---
+
+## Author
+
+**[Aditya Singh](https://x.com/singhaditya5711)** (2022UG2062)
+Indian Institute of Information Technology, Ranchi
+
+---
+
+<div align="center">
+Built for efficient exam duty management.
+</div>
