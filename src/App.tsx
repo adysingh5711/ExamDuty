@@ -8,7 +8,7 @@ const SchedulerPage = lazy(() => import('./pages/SchedulerPage'));
 
 export default function App() {
   return (
-    <BrowserRouter basename="/ExamDuty">
+    <BrowserRouter basename={import.meta.env.VITE_BASE_PATH ?? "/"}>
       <Suspense fallback={
         <div className="min-h-screen w-full flex flex-col items-center justify-center bg-white text-slate-900 gap-2 font-medium">
           <div className="w-10 h-10 border-[3.5px] border-indigo-100 border-t-indigo-600 rounded-full animate-spin" />
