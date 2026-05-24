@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflow/deploy.yml"
+      - ".github/workflows/deploy.yml"
       - "src/**"
       - "index.html"
       - "package.json"
@@ -63,6 +63,8 @@ jobs:
           echo "🔨 Building Vite application..."
           npm run build
           echo "✅ Vite build completed successfully"
+        env:
+          VITE_BASE_PATH: /ExamDuty/
 
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
