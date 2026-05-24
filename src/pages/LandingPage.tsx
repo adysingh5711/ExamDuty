@@ -24,8 +24,8 @@ export default function LandingPage() {
       {/* NAV */}
       <header
         className={`fixed inset-x-0 top-0 z-50 h-14 transition-all duration-200 ${top
-            ? "bg-transparent"
-            : "bg-white/95 backdrop-blur-sm border-b border-slate-100"
+          ? "bg-transparent"
+          : "bg-white/95 backdrop-blur-sm border-b border-slate-100"
           }`}
       >
         <div className="max-w-5xl mx-auto px-6 h-full flex items-center justify-between">
@@ -141,6 +141,75 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── TRUST STRIP ── */}
+      <div className="relative overflow-hidden border-y border-slate-100 bg-gradient-to-r from-indigo-50/60 via-white to-indigo-50/60">
+        {/* subtle animated shimmer line at top border */}
+        <div
+          className="absolute top-0 left-0 h-px w-full"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, #6366f1 40%, #818cf8 60%, transparent 100%)",
+            animation: "shimmer 3s linear infinite",
+          }}
+        />
+
+        <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center justify-center sm:justify-between gap-4">
+          {/* left: label */}
+          <div className="flex items-center gap-2.5">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+            </span>
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">
+              Actively used at
+            </span>
+          </div>
+
+          {/* center: logo + name */}
+          <a
+            href="https://iiitranchi.ac.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 group"
+          >
+            <img
+              src="https://iiitranchi.ac.in/images/logoXL.png"
+              alt="IIIT Ranchi logo"
+              className="h-9 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = "none";
+              }}
+            />
+            <div className="flex flex-col">
+              <span className="text-sm font-700 font-bold text-slate-800 leading-tight group-hover:text-indigo-700 transition-colors">
+                IIIT Ranchi
+              </span>
+              <span className="text-xs text-slate-400 leading-tight">
+                Indian Institute of Information Technology
+              </span>
+            </div>
+          </a>
+
+          {/* right: proof pill */}
+          <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-3.5 py-1.5 shadow-sm text-xs font-semibold text-slate-600">
+            <svg className="w-3.5 h-3.5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            Exam rosters generated every semester
+          </div>
+        </div>
+
+        {/* shimmer line at bottom border */}
+        <div
+          className="absolute bottom-0 left-0 h-px w-full"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, #6366f1 40%, #818cf8 60%, transparent 100%)",
+            animation: "shimmer 3s linear infinite reverse",
+          }}
+        />
+      </div>
       {/* HOW IT WORKS */}
       <section id="how" className="py-24 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto">
@@ -266,6 +335,17 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
+
+      <style>{`
+        @keyframes up {
+          from { opacity: 0; transform: translateY(14px); }
+          to   { opacity: 1; transform: none; }
+        }
+        @keyframes shimmer {
+          0%   { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+      `}</style>
     </div>
   );
 }
